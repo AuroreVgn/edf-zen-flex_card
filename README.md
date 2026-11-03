@@ -1,119 +1,24 @@
-# ⚡ EDF Zen Flex Card
+# ⚡ EDF Zen Flex Card — dépôt historique
 
 > [!IMPORTANT]
-> **La carte EDF Zen Flex est désormais intégrée au code de [l'intégration EDF Zen Flex](https://github.com/AuroreVgn/edf-zen-flex).** Cette évolution n'est pas encore publiée dans une release de l'intégration.
-> Pour une installation stable aujourd'hui, utilisez la dernière version publiée de ce dépôt tant que la nouvelle version de l'intégration n'est pas disponible.
-> Après publication, la ressource sera `/edf_zen_flex/zen-flex-card.js` et les cartes `type: custom:zen-flex-card` resteront compatibles.
-> [Instructions de migration](https://github.com/AuroreVgn/edf-zen-flex#toc-section-7)
-
-
-[![Release](https://img.shields.io/github/v/release/AuroreVgn/edf-zen-flex-card?label=release&style=flat-square)](https://github.com/AuroreVgn/edf-zen-flex-card/releases)
-[![Licence MIT](https://img.shields.io/badge/licence-MIT-brightgreen?style=flat-square)](LICENSE)
-[![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5?style=flat-square)](https://www.hacs.xyz/)
-[![Lovelace](https://img.shields.io/badge/Lovelace-Card-41BDF5?style=flat-square&logo=homeassistant)](https://www.home-assistant.io/dashboards/)
-[![Maintainer](https://img.shields.io/badge/maintainer-%40AuroreVgn-0078D7?style=flat-square)](https://github.com/AuroreVgn)
-[![Ko--fi](https://img.shields.io/badge/Ko--fi-Soutenir-FF5E5B?logo=kofi&logoColor=white&style=flat-square)](https://ko-fi.com/aurorevgn)
-
-Carte personnalisée **Lovelace** pour afficher les journées et tarifs de l'offre **EDF Zen Flex** dans Home Assistant.
-
-> [!IMPORTANT]
-> Cette carte nécessite l'[intégration EDF Zen Flex](https://github.com/AuroreVgn/edf-zen-flex). Projet communautaire non officiel, indépendant d'EDF.
-
-## 🏠 Mes projets Home Assistant
-
-[Découvrir mes projets Home Assistant](https://erra.me)
-
-## ☕ Soutenir le projet
-
-[Soutenir le développement sur Ko-fi](https://ko-fi.com/aurorevgn).
-
-## 📑 Sommaire
-
-- [✨ Fonctionnalités](#toc-section-1)
-- [📸 Aperçus](#toc-section-2)
-- [📦 Installation](#toc-section-3)
-- [⚙️ Configuration de la carte](#toc-section-4)
-- [📊 Origine des données](#toc-section-5)
-- [🤝 Signaler un problème](#toc-section-6)
-- [📄 Licence](#toc-section-7)
-
-<a name="toc-section-1"></a>
-
-## ✨ Fonctionnalités
-
-- Affichage des journées **aujourd'hui** et **demain** : Éco, Sobriété ou Bonus.
-- Calendrier mensuel des journées connues, avec navigation entre les mois.
-- Compteurs annuels et jours restants, selon les informations fournies par l'intégration.
-- Prix actuel du kWh et période heures pleines/heures creuses.
-- Tableau des tarifs Éco et Sobriété en HP/HC.
-- Icônes adaptées aux types de journée et aux périodes tarifaires.
-- Deux modes d'affichage : **complet** et **compact**.
-- Éditeur visuel permettant de personnaliser le titre, l'entité et les options d'affichage.
-- Détection automatique du capteur de journée lorsque l'entité n'est pas précisée.
-
-<a name="toc-section-2"></a>
-
-## 📸 Aperçus
-
-| Mode compact | Mode complet |
-| :---: | :---: |
-| ![EDF Zen Flex Card — mode clair](assets/light.png) | ![EDF Zen Flex Card — mode sombre](assets/dark.png) |
-
-<a name="toc-section-3"></a>
-
-## 📦 Installation
-
-> [!NOTE]
-> **Marketplace / HACS — Home Assistant 2026.11+ :** ouvrez **Paramètres → Marketplace**, intégré à Home Assistant sans installation séparée de HACS. Recherchez ce projet ou ajoutez `https://github.com/AuroreVgn/edf-zen-flex_card` comme **dépôt personnalisé** s'il n'est pas encore référencé. Avec Home Assistant **2026.10 ou antérieur**, continuez à utiliser HACS comme indiqué ci-dessous. Les liens `hacs_repository` existants restent compatibles. Après installation, ajoutez la carte à votre tableau de bord. Le projet reste communautaire et non officiel.
+> **EDF Zen Flex Card est désormais intégrée directement au code de l'[intégration EDF Zen Flex](https://github.com/AuroreVgn/edf-zen-flex).**
+> Ce dépôt séparé n'est plus destiné à recevoir de nouvelles versions de la carte. Il est conservé pour l'historique du projet, les anciennes versions et les captures d'écran.
 >
+> **Attention :** vérifiez qu'une version de l'intégration incluant la carte a bien été publiée avant de désinstaller l'ancienne carte indépendante.
 
+## Installer la carte
 
-### Option A — HACS (recommandé)
+Installez ou mettez à jour **[AuroreVgn/edf-zen-flex](https://github.com/AuroreVgn/edf-zen-flex)** via HACS / Marketplace ou manuellement, puis redémarrez Home Assistant.
 
-#### Automatiquement
+La ressource JavaScript est fournie par l'intégration :
 
-[![Ouvrir Home Assistant et ajouter ce dépôt dans HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AuroreVgn&repository=edf-zen-flex-card&category=plugin)
+```text
+/edf_zen_flex/zen-flex-card.js
+```
 
-#### Manuellement
+L'intégration tente de l'enregistrer automatiquement. Si nécessaire, ajoutez-la dans **Paramètres → Tableaux de bord → Ressources** en tant que **Module JavaScript**.
 
-Cette carte étant distribuée depuis un dépôt personnalisé, il faut l'ajouter une première fois dans HACS :
-
-1. Ouvrir **HACS** → **Tableau de bord**.
-2. Ouvrir le menu **⋮** → **Dépôts personnalisés**.
-3. Ajouter :
-
-   ```text
-   https://github.com/AuroreVgn/edf-zen-flex-card
-   ```
-
-4. Choisir la catégorie **Tableau de bord** (ou **Plugin**, selon la version de HACS).
-5. Rechercher **EDF Zen Flex Card** puis installer la carte.
-6. Actualiser le navigateur si nécessaire.
-
-### Option B — Installation manuelle
-
-1. Télécharger le fichier `dist/zen-flex-card.js` depuis ce dépôt.
-2. Le copier dans :
-
-   ```text
-   /config/www/zen-flex-card.js
-   ```
-
-3. Ajouter une ressource JavaScript de type **Module JavaScript** dans **Paramètres → Tableaux de bord → Ressources** :
-
-   ```text
-   /local/zen-flex-card.js
-   ```
-
-4. Actualiser le tableau de bord.
-
-Avec HACS, la ressource habituelle est `/hacsfiles/edf-zen-flex-card/zen-flex-card.js` ; vérifier qu'elle a bien été enregistrée automatiquement.
-
-<a name="toc-section-4"></a>
-
-## ⚙️ Configuration de la carte
-
-Ajouter une carte **Manuelle** dans le tableau de bord :
+Ajoutez ensuite une carte manuelle :
 
 ```yaml
 type: custom:zen-flex-card
@@ -123,47 +28,22 @@ show_tariffs: true
 show_remaining: true
 ```
 
-La carte peut rechercher automatiquement le capteur « Aujourd'hui » de l'intégration. Si nécessaire, préciser son identifiant :
+La carte conserve ses modes **complet** et **compact**, son calendrier mensuel, les journées Éco / Sobriété / Bonus, les tarifs HP/HC et son éditeur graphique.
 
-```yaml
-type: custom:zen-flex-card
-entity: sensor.edf_zen_flex_aujourd_hui
-mode: compact
-```
+## Migration depuis l'installation séparée
 
-> L'identifiant exact du capteur dépend de votre installation : sélectionnez l'entité réelle depuis les outils de développement Home Assistant.
+1. Installez une version publiée de l'intégration **EDF Zen Flex** qui inclut la carte.
+2. Vérifiez que la nouvelle ressource `/edf_zen_flex/zen-flex-card.js` est accessible et enregistrée dans Lovelace.
+3. Désinstallez l'ancienne carte `edf-zen-flex_card` installée séparément via HACS, si elle existe.
+4. Supprimez uniquement son ancienne ressource JavaScript (par exemple `/hacsfiles/edf-zen-flex_card/zen-flex-card.js` ou `/local/zen-flex-card.js`), **pas** `/edf_zen_flex/zen-flex-card.js`.
+5. Actualisez le navigateur. Vos configurations `type: custom:zen-flex-card` restent valides.
 
-### Options disponibles
+Ne chargez pas simultanément les anciennes et nouvelles ressources : elles déclarent le même type de carte.
 
-| Option | Valeur | Description |
-| --- | --- | --- |
-| `type` | `custom:zen-flex-card` | Type de carte |
-| `title` | Texte | Titre personnalisé |
-| `entity` | Identifiant d'entité | Capteur Aujourd'hui ; facultatif si détection automatique |
-| `mode` | `full` ou `compact` | Mode complet ou compact |
-| `show_tariffs` | `true` / `false` | Affichage des tarifs |
-| `show_remaining` | `true` / `false` | Affichage des jours restants |
+## Documentation et support
 
-<a name="toc-section-5"></a>
+- [README complet, configuration et dépannage](https://github.com/AuroreVgn/edf-zen-flex#readme)
+- [Signaler un problème](https://github.com/AuroreVgn/edf-zen-flex/issues)
+- [Captures d'écran historiques](assets/)
 
-## 📊 Origine des données
-
-La carte exploite les états et attributs de l'intégration **EDF Zen Flex**, notamment l'historique des journées, les compteurs annuels et les tarifs enregistrés. Elle ne contacte pas directement EDF.
-
-Les journées non connues sont affichées comme telles ; elles ne sont pas déduites ou inventées.
-
-<a name="toc-section-6"></a>
-
-## 🤝 Signaler un problème
-
-Ouvrir une [issue GitHub](https://github.com/AuroreVgn/edf-zen-flex-card/issues) en précisant la version de Home Assistant, le navigateur, la configuration YAML et les éventuelles erreurs de console.
-
-<a name="toc-section-7"></a>
-
-## 📄 Licence
-
-Cette carte est distribuée sous licence **MIT**. Consultez le fichier [LICENSE](LICENSE).
-
----
-
-**EDF Zen Flex Card** est un projet indépendant destiné à la communauté Home Assistant.
+Merci aux utilisateurs et contributeurs d'EDF Zen Flex Card !

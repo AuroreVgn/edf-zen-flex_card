@@ -1,5 +1,12 @@
 # ⚡ EDF Zen Flex Card
 
+> [!IMPORTANT]
+> **La carte EDF Zen Flex est désormais intégrée au code de [l'intégration EDF Zen Flex](https://github.com/AuroreVgn/edf-zen-flex).** Cette évolution n'est pas encore publiée dans une release de l'intégration.
+> Pour une installation stable aujourd'hui, utilisez la dernière version publiée de ce dépôt tant que la nouvelle version de l'intégration n'est pas disponible.
+> Après publication, la ressource sera `/edf_zen_flex/zen-flex-card.js` et les cartes `type: custom:zen-flex-card` resteront compatibles.
+> [Instructions de migration](https://github.com/AuroreVgn/edf-zen-flex#toc-section-7)
+
+
 [![Release](https://img.shields.io/github/v/release/AuroreVgn/edf-zen-flex-card?label=release&style=flat-square)](https://github.com/AuroreVgn/edf-zen-flex-card/releases)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-brightgreen?style=flat-square)](LICENSE)
 [![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5?style=flat-square)](https://www.hacs.xyz/)
